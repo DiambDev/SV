@@ -1,63 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿San Valentine?</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #ffe6e6;
-        }
-        .container {
-            margin-top: 100px;
-        }
-        h1 {
-            color: #ff4d4d;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        #yes {
-            background-color: #ff4d4d;
-            color: white;
-        }
-        #no {
-            background-color: #ddd;
-            color: black;
-            position: absolute;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación especial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #ffe29f, #ffa99f, #ff719a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.93);
+    width: 90%;
+    max-width: 600px;
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    position: relative;
+    animation: float 5s ease-in-out infinite;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #d94862;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #333;
+    font-size: 1.05rem;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 28px;
+    margin: 10px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#yes {
+    background: #ff4d6d;
+    color: white;
+    box-shadow: 0 10px 25px rgba(255,77,109,0.4);
+}
+
+#yes:hover { transform: scale(1.07); }
+
+#no {
+    background: #eee;
+    color: #333;
+    position: absolute;
+}
+
+/* 🌿 HOJAS */
+.leaf {
+    position: absolute;
+    font-size: 2.2rem;
+    opacity: 0.5;
+    animation: leafFloat 8s ease-in-out infinite;
+}
+
+@keyframes leafFloat {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+#no {
+    background: #6c8cff;         
+    color: white;
+    position: absolute;
+    box-shadow: 0 8px 18px rgba(108,140,255,0.45);
+}
+
+#no:hover {
+    transform: scale(1.05);
+}
+
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Usted esta cordialmente invitada a almorzar en mi casa ❤️</h1>
-        <h1>¿Acepta? ❤️</h1>
-        <p>No hay opción incorrecta... 😏</p>
-        <div class="buttons">
-            <button id="yes" onclick="window.location.href='collage.html'">Sí 💖</button>
-            <button id="no" onmouseover="moveButton()">No 😢</button>
-        </div>
-    </div>
+<div class="card">
+    <h1>¿Te gustaría ser mi San Valentine?</h1>
 
-    <script>
-        function moveButton() {
-            var x = Math.random() * (window.innerWidth - 100);
-            var y = Math.random() * (window.innerHeight - 50);
-            document.getElementById("no").style.left = x + "px";
-            document.getElementById("no").style.top = y + "px";
-        }
-    </script>
+    <p>
+        Alexandra, amor mío...
+    </p>
+    <p>
+        Quiero que me concedas el honor de ser mi San Valentine para este 14 de febrero.
+    </p>
+    <p>¿Aceptas?</p>
+
+    <div class="buttons">
+        <button id="yes" onclick="window.location.href='collage.html'">Sí 💖</button>
+        <button id="no" onmouseover="moveButton()">No 😢</button>
+    </div>
+</div>
+
+<!-- 🍃 hojas -->
+<div class="leaf" style="top:8%; left:6%;">🍃</div>
+<div class="leaf" style="top:12%; right:8%; animation-delay:2s;">🌿</div>
+<div class="leaf" style="bottom:10%; left:12%; animation-delay:4s;">🍃</div>
+<div class="leaf" style="bottom:8%; right:10%; animation-delay:1s;">🌿</div>
+
+<script>
+function moveButton() {
+    const card = document.querySelector(".card");
+    const noBtn = document.getElementById("no");
+
+    const cardRect = card.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
+
+    const maxX = cardRect.width - btnRect.width - 20;
+    const maxY = cardRect.height - btnRect.height - 20;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+</script>
+
 
 </body>
 </html>

@@ -1,54 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Eres mi San valentin! 💖</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #fff0f5;
-        }
-        h1 {
-            color: #ff4d4d;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .gallery img {
-            width: 200px;
-            height: auto;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación San Valentín</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #b8fff1, #5fdacb, #1f8f8b);
+    display: flex;
+    justify-content: center;
+    padding: 60px 15px;
+    overflow-y: auto;
+}
+
+
+/* 💌 CARTA */
+.card {
+    background: rgba(255,255,255,0.95);
+    width: 92%;
+    max-width: 720px;
+    padding: 45px;
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    text-align: center;
+    animation: fadeIn 1.2s ease;
+    position: relative;
+}
+
+/* 📸 FOTO */
+.photo {
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #0f6f6b;
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+}
+
+.line {
+    width: 140px;
+    height: 3px;
+    background: linear-gradient(to right, #0f6f6b, #6fffe9);
+    margin: 12px auto 25px auto;
+    border-radius: 99px;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.highlight {
+    color: #0f6f6b;
+    font-weight: 600;
+}
+
+/* 🥭 MANGOS */
+.mango {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: fall linear infinite;
+    opacity: 0.85;
+}
+
+@keyframes fall {
+    from { transform: translateY(-120px) rotate(0deg); }
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* 💖 STICKERS */
+.sticker {
+    position: absolute;
+    font-size: 2.2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(8deg); }
+}
+
+/* ✨ ENTRADA */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
+
 <body>
 
-    <h1>¡La recogeré para ir a comer! 💖</h1>
-    <p>Te amo muchísimo, Desde que te conocí, cada momento contigo ha sido especial.</p>
-    <p>Este día, quiero que sea aún más especial porque quiero pasarlo contigo.</p>
-    <p>No hay nadie más con quien quisiera compartir este día. juntos 😘</p>
+<div class="card">
 
-    <div class="gallery">
-        <img src="imagenes/Foto1.jpg" alt="Foto 1">
-        <img src="imagenes/Foto2.jpg" alt="Foto 2">
-        <img src="imagenes/Foto3.jpg" alt="Foto 3">
-        <img src="imagenes/Foto4.jpg" alt="Foto 4">
-        <img src="imagenes/Foto5.jpg" alt="Foto 5">
-    </div>
-    <div class="gallery">
-        <img src="imagenes/Foto6.jpg" alt="Foto 6">
-        <img src="imagenes/Foto7.jpg" alt="Foto 7">
-        <img src="imagenes/Foto8.jpg" alt="Foto 8">
-        <img src="imagenes/Foto9.jpg" alt="Foto 9">
-        <img src="imagenes/Foto10.jpg" alt="Foto 10">
-    </div>
+    <!-- 📸 Foto del restaurante -->
+    <img src="imagenes/restaurant.png" alt="Restaurante" class="photo">
+
+    <h1>San Valentín en el Museo Larco 💖</h1>
+    <div class="line"></div>
+
+    <p>
+        Con motivo de San Valentín, se ha realizado una 
+        <span class="highlight">reserva para almorzar en el restaurante del Museo de Lima</span>,
+        un espacio elegante, tranquilo y rodeado de áreas verdes.
+    </p>
+
+    <p>
+        El plan es disfrutar de un buen almuerzo, apreciar el entorno
+        y luego dar un paseo por el museo y sus jardines, aprovechando
+        la tarde y el ambiente.
+    </p>
+
+    <p>
+        Será una salida especial pensada para compartir un momento agradable,
+        en un lugar bonito y diferente.
+    </p>
+
+    <p><strong>Estás cordialmente invitada.</strong></p>
+
+    <p>Atte.<br><strong>Alvaro Espinoza Zambrano</strong></p>
+</div>
+
+<!-- 💖 Stickers -->
+<div class="sticker" style="top:6%; left:6%;">💖</div>
+<div class="sticker" style="top:10%; right:8%; animation-delay:2s;">✨</div>
+<div class="sticker" style="bottom:8%; left:10%; animation-delay:4s;">🌹</div>
+<div class="sticker" style="bottom:6%; right:12%; animation-delay:1s;">💫</div>
+
+<!-- 🥭 Mangos rápidos -->
+<div class="mango" style="left:5%; animation-duration:5s;">🥭</div>
+<div class="mango" style="left:20%; animation-duration:6s;">🥭</div>
+<div class="mango" style="left:40%; animation-duration:4.5s;">🥭</div>
+<div class="mango" style="left:60%; animation-duration:5.5s;">🥭</div>
+<div class="mango" style="left:80%; animation-duration:4s;">🥭</div>
+<div class="mango" style="left:92%; animation-duration:6.5s;">🥭</div>
 
 </body>
 </html>
+
