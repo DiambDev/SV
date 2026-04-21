@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
@@ -28,11 +28,17 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "D:\\UnitysProyects\\z_Paginas\\SV\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAQwGIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-01-25T14:41:49.252Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -41,7 +47,7 @@
               "RelativeDocumentMoniker": "collage.html",
               "ToolTip": "D:\\UnitysProyects\\z_Paginas\\SV\\collage.html",
               "RelativeToolTip": "collage.html",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAAAHsAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAHUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-01-25T14:41:46.088Z",
               "EditorCaption": ""
