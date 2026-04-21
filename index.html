@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación especial</title>
+<title>2° Aniversario 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -12,38 +12,34 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #ffe29f, #ffa99f, #ff719a);
+    background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    text-align: center;
 }
 
+/* CARD */
 .card {
-    background: rgba(255,255,255,0.93);
+    background: rgba(255,255,255,0.95);
     width: 90%;
     max-width: 600px;
     padding: 50px 40px;
     border-radius: 24px;
     box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    text-align: center;
     position: relative;
     animation: float 5s ease-in-out infinite;
+    backdrop-filter: blur(10px);
 }
 
 h1 {
     font-family: 'Playfair Display', serif;
     color: #d94862;
-    margin-bottom: 10px;
 }
 
 p {
     color: #333;
-    font-size: 1.05rem;
-}
-
-.buttons {
-    margin-top: 25px;
 }
 
 button {
@@ -53,7 +49,6 @@ button {
     border: none;
     border-radius: 999px;
     cursor: pointer;
-    transition: 0.25s;
 }
 
 #yes {
@@ -65,86 +60,88 @@ button {
 #yes:hover { transform: scale(1.07); }
 
 #no {
-    background: #eee;
-    color: #333;
+    background: #6c8cff;
+    color: white;
     position: absolute;
 }
 
-/* 🌿 HOJAS */
-.leaf {
+/* 💖 LLUVIA */
+.floating {
     position: absolute;
-    font-size: 2.2rem;
-    opacity: 0.5;
-    animation: leafFloat 8s ease-in-out infinite;
+    font-size: 1.8rem;
+    animation: fall linear infinite;
+    opacity: 0.7;
 }
 
-@keyframes leafFloat {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(10deg); }
+@keyframes fall {
+    from {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* glow sutil */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 24px;
+    background: linear-gradient(45deg, #ff4d6d, #ff9aa2, #ffc3a0);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0.6;
 }
 
 @keyframes float {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
-#no {
-    background: #6c8cff;         
-    color: white;
-    position: absolute;
-    box-shadow: 0 8px 18px rgba(108,140,255,0.45);
-}
-
-#no:hover {
-    transform: scale(1.05);
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="card">
-    <h1>¿Te gustaría ser mi San Valentine?</h1>
+    <h1>¿Celebramos nuestros 2 años? 💖</h1>
 
-    <p>
-        Alexandra, amor mío...
-    </p>
-    <p>
-        Quiero que me concedas el honor de ser mi San Valentine para este 14 de febrero.
-    </p>
-    <p>¿Aceptas?</p>
+    <p>Alexandra...</p>
+    <p>Cumpliremos <strong>2 años juntos</strong>.</p>
+    <p>Quiero que el día sea especial para nosotros.</p>
+    <p>¿Te gustaría vivirlo conmigo? 💫</p>
 
-    <div class="buttons">
-        <button id="yes" onclick="window.location.href='collage.html'">Sí 💖</button>
-        <button id="no" onmouseover="moveButton()">No 😢</button>
-    </div>
+    <button id="yes" onclick="window.location.href='collage.html'">Obvio sí 💖</button>
+    <button id="no" onmouseover="moveButton()">No 😢</button>
 </div>
 
-<!-- 🍃 hojas -->
-<div class="leaf" style="top:8%; left:6%;">🍃</div>
-<div class="leaf" style="top:12%; right:8%; animation-delay:2s;">🌿</div>
-<div class="leaf" style="bottom:10%; left:12%; animation-delay:4s;">🍃</div>
-<div class="leaf" style="bottom:8%; right:10%; animation-delay:1s;">🌿</div>
-
+<!-- 💖 lluvia dinámica -->
 <script>
+const emojis = ["💖","💘","💞","😍","🥰"];
+
+for(let i=0; i<25; i++){
+    let el = document.createElement("div");
+    el.className = "floating";
+    el.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+
+    el.style.left = Math.random()*100 + "vw";
+    el.style.animationDuration = (4 + Math.random()*4) + "s";
+    el.style.fontSize = (1 + Math.random()*1.5) + "rem";
+
+    document.body.appendChild(el);
+}
+
 function moveButton() {
     const card = document.querySelector(".card");
     const noBtn = document.getElementById("no");
 
-    const cardRect = card.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
+    const maxX = card.clientWidth - noBtn.clientWidth;
+    const maxY = card.clientHeight - noBtn.clientHeight;
 
-    const maxX = cardRect.width - btnRect.width - 20;
-    const maxY = cardRect.height - btnRect.height - 20;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    noBtn.style.left = Math.random()*maxX + "px";
+    noBtn.style.top = Math.random()*maxY + "px";
 }
 </script>
-
 
 </body>
 </html>
