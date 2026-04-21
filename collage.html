@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación San Valentín</title>
+<title>Nuestro Aniversario 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -12,17 +12,16 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #b8fff1, #5fdacb, #1f8f8b);
+    background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
     display: flex;
     justify-content: center;
     padding: 60px 15px;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
-
-/* 💌 CARTA */
+/* 💌 CARD */
 .card {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.96);
     width: 92%;
     max-width: 720px;
     padding: 45px;
@@ -31,6 +30,19 @@ body {
     text-align: center;
     animation: fadeIn 1.2s ease;
     position: relative;
+    z-index: 2;
+}
+
+/* glow elegante */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4d6d, #ff9aa2, #ffc3a0);
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0.6;
 }
 
 /* 📸 FOTO */
@@ -43,17 +55,17 @@ body {
     box-shadow: 0 14px 35px rgba(0,0,0,0.3);
 }
 
+/* TEXTO */
 h1 {
     font-family: 'Playfair Display', serif;
-    color: #0f6f6b;
+    color: #d94862;
     font-size: 2.3rem;
-    margin-bottom: 10px;
 }
 
 .line {
     width: 140px;
     height: 3px;
-    background: linear-gradient(to right, #0f6f6b, #6fffe9);
+    background: linear-gradient(to right, #ff4d6d, #ffc3a0);
     margin: 12px auto 25px auto;
     border-radius: 99px;
 }
@@ -65,37 +77,53 @@ p {
 }
 
 .highlight {
-    color: #0f6f6b;
+    color: #d94862;
     font-weight: 600;
 }
 
-/* 🥭 MANGOS */
-.mango {
-    position: absolute;
-    font-size: 2.5rem;
+/* 💖 CORAZONES (fondo) */
+.heart {
+    position: fixed;
+    top: -50px;
+    font-size: 1.8rem;
     animation: fall linear infinite;
-    opacity: 0.85;
+    opacity: 0.7;
+    z-index: 0;
 }
 
-@keyframes fall {
-    from { transform: translateY(-120px) rotate(0deg); }
-    to { transform: translateY(110vh) rotate(360deg); }
-}
-
-/* 💖 STICKERS */
-.sticker {
-    position: absolute;
-    font-size: 2.2rem;
+/* ✨ PARTÍCULAS */
+.sparkle {
+    position: fixed;
+    font-size: 1.4rem;
     animation: float 6s ease-in-out infinite;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+/* 🎈 STICKERS */
+.sticker {
+    position: fixed;
+    font-size: 2rem;
+    animation: float 7s ease-in-out infinite;
     opacity: 0.8;
+    z-index: 1;
+}
+
+/* ANIMACIONES */
+@keyframes fall {
+    from {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
 }
 
 @keyframes float {
     0%,100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-18px) rotate(8deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
 }
 
-/* ✨ ENTRADA */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
@@ -107,48 +135,63 @@ p {
 
 <div class="card">
 
-    <!-- 📸 Foto del restaurante -->
-    <img src="imagenes/restaurant.png" alt="Restaurante" class="photo">
+    <img src="imagenes/nosotros.jpg" class="photo">
 
-    <h1>San Valentín en el Museo Larco 💖</h1>
+    <h1>Nuestro 2° Aniversario 💖</h1>
     <div class="line"></div>
 
     <p>
-        Con motivo de San Valentín, se ha realizado una 
-        <span class="highlight">reserva para almorzar en el restaurante del Museo de Lima</span>,
-        un espacio elegante, tranquilo y rodeado de áreas verdes.
+        Han pasado <span class="highlight">2 años</span> desde que empezamos esta historia...
+        y sinceramente, no cambiaría nada de lo que hemos vivido juntos.
     </p>
 
     <p>
-        El plan es disfrutar de un buen almuerzo a la 1:30 pm, apreciar el entorno
-        y luego dar un paseo por el museo y sus jardines, aprovechando
-        la tarde y el ambiente.
+        Cada momento contigo, cada risa, cada dificultad, cada logro...
+        todo ha valido la pena porque ha sido contigo.
     </p>
 
     <p>
-        Será una salida especial pensada para compartir un momento agradable,
-        en un lugar bonito y diferente.
+        Quiero que el día sea especial,
+        así que salgamos a cenar al Qhusi Restaurant 💫
     </p>
 
-    <p><strong>Estás cordialmente invitada.</strong></p>
+    <p>
+        <span class="highlight">Celebremos estos 2 años juntos mi hermosa coincidencia 💖</span>
+    </p>
 
-    <p>Atte.<br><strong>Alvaro Espinoza Zambrano</strong></p>
+    <p><strong>Con amor,</strong></p>
+    <p><strong>Alvaro</strong></p>
+
 </div>
 
-<!-- 💖 Stickers -->
-<div class="sticker" style="top:6%; left:6%;">💖</div>
-<div class="sticker" style="top:10%; right:8%; animation-delay:2s;">✨</div>
-<div class="sticker" style="bottom:8%; left:10%; animation-delay:4s;">🌹</div>
-<div class="sticker" style="bottom:6%; right:12%; animation-delay:1s;">💫</div>
+<!-- 🎈 stickers flotantes -->
+<div class="sticker" style="top:8%; left:6%;">💖</div>
+<div class="sticker" style="top:12%; right:8%; animation-delay:2s;">✨</div>
+<div class="sticker" style="bottom:10%; left:10%; animation-delay:4s;">🌹</div>
+<div class="sticker" style="bottom:8%; right:12%; animation-delay:1s;">💫</div>
 
-<!-- 🥭 Mangos rápidos -->
-<div class="mango" style="left:5%; animation-duration:5s;">🥭</div>
-<div class="mango" style="left:20%; animation-duration:6s;">🥭</div>
-<div class="mango" style="left:40%; animation-duration:4.5s;">🥭</div>
-<div class="mango" style="left:60%; animation-duration:5.5s;">🥭</div>
-<div class="mango" style="left:80%; animation-duration:4s;">🥭</div>
-<div class="mango" style="left:92%; animation-duration:6.5s;">🥭</div>
+<script>
+const hearts = ["💖","💘","💞","💗","💝"];
+const sparkles = ["✨","💫","⭐"];
+
+for(let i=0;i<30;i++){
+    let h = document.createElement("div");
+    h.className="heart";
+    h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+    h.style.left = Math.random()*100+"vw";
+    h.style.animationDuration = (4+Math.random()*4)+"s";
+    document.body.appendChild(h);
+}
+
+for(let i=0;i<20;i++){
+    let s = document.createElement("div");
+    s.className="sparkle";
+    s.innerHTML = sparkles[Math.floor(Math.random()*sparkles.length)];
+    s.style.left = Math.random()*100+"vw";
+    s.style.top = Math.random()*100+"vh";
+    document.body.appendChild(s);
+}
+</script>
 
 </body>
 </html>
-
